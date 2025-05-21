@@ -12,6 +12,4 @@
 
 ## 📸 Giao diện minh họa
 
-<p align="center">
-  <img src="Screenshots\1.png" alt="Giao diện ứng dụng" width="600"/>
-</p>
+<img src="https://github.com/nhucccc/AESSHuy/edit/main/1.png?raw=true" width="700" alt="Screenshot">
