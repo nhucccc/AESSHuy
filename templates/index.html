@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AES File Encrypt/Decrypt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #e0e7ff, #f0fdfa);
+    }
+    .custom-file-upload:hover {
+      background-color: #f3f4f6;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white shadow-xl rounded-3xl p-8 w-full max-w-lg space-y-6">
+    <h1 class="text-3xl font-extrabold text-center text-indigo-600">🔐 AES File Encrypt/Decrypt</h1>
+
+    <form method="POST" action="/process" enctype="multipart/form-data" class="space-y-5">
+      <!-- Chế độ -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-600 mb-1">Chọn chế độ:</label>
+        <select name="mode" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          <option value="encrypt">🔒 Mã hóa</option>
+          <option value="decrypt">🔓 Giải mã</option>
+        </select>
+      </div>
+
+      <!-- Khóa -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-600 mb-1">Nhập mật khẩu (khóa):</label>
+        <input type="text" name="password" required
+          class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          placeholder="VD: mySecret123">
+      </div>
+
+      <!-- File -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-600 mb-2">Chọn file:</label>
+        <label class="flex items-center justify-between border border-dashed border-gray-400 rounded-lg p-4 cursor-pointer custom-file-upload">
+          <span id="fileLabel" class="text-gray-500">Chưa chọn file nào</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 4v16h16V4H4zm8 4v8m-4-4h8" />
+          </svg>
+          <input type="file" name="file" required class="hidden" id="fileInput" onchange="updateFileName()">
+        </label>
+      </div>
+
+      <!-- Submit -->
+      <div>
+        <button type="submit"
+          class="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition duration-200">
+          🚀 Bắt đầu xử lý
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function updateFileName() {
+      const input = document.getElementById('fileInput');
+      const label = document.getElementById('fileLabel');
+      if (input.files.length > 0) {
+        label.textContent = input.files[0].name;
+        label.classList.remove('text-gray-500');
+        label.classList.add('text-gray-800');
+      } else {
+        label.textContent = "Chưa chọn file nào";
+        label.classList.remove('text-gray-800');
+        label.classList.add('text-gray-500');
+      }
+    }
+  </script>
+</body>
+</html>
