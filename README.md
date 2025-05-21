@@ -12,8 +12,5 @@
 
 ## 📸 Giao diện minh họa
 
-<img src="https://github.com/nhucccc/AESSHuy/edit/main/1.png?raw=true" width="700" alt="Screenshot">
-https://github.com/nhucccc/AESSHuy/blob/main/1.png
-### 📸 Giao diện minh họa
 
 <img src="https://github.com/nhucccc/AESSHuy/blob/main/1.png?raw=true" width="600">
